@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #070B14;
+  --color-secondary: #0D1526;
+  --color-accent: #00D4FF;
+  --color-accent-dark: #0099BB;
+  --color-accent-light: #66E8FF;
+  --color-text: #E8F4FF;
+  --color-text-secondary: #7A9BB5;
+  --color-bg-card: #0F1929;
+  --color-border: #1E3A5F;
+  --accent-rgb: 0, 212, 255;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(var(--accent-rgb), 0.28);
+  color: var(--color-text);
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--color-primary); }
+::-webkit-scrollbar-thumb { background: var(--color-accent-dark); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
+
+@layer utilities {
+  .transition-theme {
+    transition: color 0.35s ease, background-color 0.35s ease,
+      border-color 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease;
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .glass-effect-accent {
+    background: rgba(var(--accent-rgb), 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(var(--accent-rgb), 0.18);
+  }
+
+  .font-display {
+    font-family: var(--font-display), 'Bebas Neue', cursive;
+    letter-spacing: 0.04em;
+  }
+
+  .font-code {
+    font-family: var(--font-mono), 'JetBrains Mono', monospace;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 15px rgba(var(--accent-rgb), 0.9),
+      0 0 35px rgba(var(--accent-rgb), 0.45);
+  }
+
+  .shadow-accent-glow {
+    box-shadow: 0 0 0 1px rgba(var(--accent-rgb), 0.4),
+      0 0 24px rgba(var(--accent-rgb), 0.15);
+  }
+
+  .bg-grid-lines {
+    background-image:
+      linear-gradient(rgba(var(--accent-rgb), 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(var(--accent-rgb), 0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .accent-line::after {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 1px;
+    background: var(--color-accent);
+    margin-top: 1rem;
+  }
+}
